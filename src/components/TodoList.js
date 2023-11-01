@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import CreateTask from '../modals/CreateTask';
 import Card from './Card';
+import { TemaVerisi } from '../App';
 
 const TodoList = () => {
     const [modal, setModal] = useState(false);
@@ -45,7 +46,8 @@ const TodoList = () => {
 
     return (
         <>
-            <div className='header text-center'>
+            <div ></div>
+            <div className='header text-center' style={useContext(TemaVerisi)}>
                 <h3>Todo List</h3>
                 <button className='btn btn-primary mt-2' onClick={()=>setModal(true)}>Create Task</button>
             </div>
