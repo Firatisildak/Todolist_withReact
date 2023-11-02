@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import EditTask from '../modals/EditTask';
+import { TemaData } from '../App';
+
 
 const Card = ({taskObj, index, deleteTask, updateListArray}) => {
     const [modal, setModal]=useState(false);
@@ -34,7 +36,7 @@ const Card = ({taskObj, index, deleteTask, updateListArray}) => {
     }
 
     return (
-        <div class="card-wrapper me-5">
+        <div class="card-wrapper me-5" style={useContext(TemaData)}>
             <div class="card-top" style={{ "background-color": colors[index%5].primaryColor }}></div>
             <div class="task-holder">
                 <span class="card-header" style={{"background-color": colors[index%5].primaryColor, "border-radius": "10px" }}>{taskObj.Name}</span>

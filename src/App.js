@@ -15,14 +15,14 @@ const tema = {
   }
 };
 
-export const TemaVerisi = React.createContext();
+export const TemaData = React.createContext();//Bu kod, oluşturulan bir TemaVerisi adında bir context'i export anahtar kelimesi ile dışarıya aktarır. Bu, context'i başka dosyalarda da kullanılabilir hale getirir. 
 
 function App() {
 
-  const [deger, setDeger] = useState(tema.dark);
+  const [colorValue, setDeger] = useState(tema.dark);
   
-  function degistir(){
-    if(tema.dark===deger){
+  function ChangeTema(){
+    if(tema.dark===colorValue){
       setDeger(tema.light);
     }else{
       setDeger(tema.dark);
@@ -31,12 +31,12 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={degistir}>
-        {tema.dark===deger ? "Açık" : "Koyu"}
+      <button className="buttonColor" onClick={ChangeTema}>
+      <i class="fa-regular fa-moon"></i> {tema.dark===colorValue ? "light mood" : "dark mood"}
       </button>
-      <TemaVerisi.Provider value={deger}>
+      <TemaData.Provider value={colorValue}>
         <TodoList />
-      </TemaVerisi.Provider>
+      </TemaData.Provider>
     </div>
   );
 }
